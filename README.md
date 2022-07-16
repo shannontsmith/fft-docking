@@ -1,6 +1,15 @@
 # Project overview
 
-This was a pet project that I worked on briefly during the COVID-19 pandemic that deals with Fourier Transform-based ligand docking. The work for this was based on the following papers, which outlined the initial conception of this method for protein-protein interactions[1] then subsequently expanded for practical applications by changing the representation allowing faster sampling[2]. 
+<p>This was a fun pet project that I worked on briefly during the COVID-19 pandemic that deals with Fourier Transform-based ligand docking. The work for this was based on the following papers, which outlined the initial conception of this method for protein-protein interactions[1] then subsequently expanded for practical applications by changing the representation allowing faster sampling[2]. </p> 
+
+<p>
+In its current state, this script takes in a protein PDB and ligand PDB file separately then each PDB is put into a grid based on gaussian smoothing function applied based on atomic radii, then FFTs are computed on this grid. 
+Now that both the protein and ligand FFTs have been computed, we don't have to recompute these. Instead, we can now simply transform the ligand FFT according to the rotational setting provided as flags and compute the resulting IFFT. The user can specify the number of output ligand PDB structures desired and they will be output in order based of IFFT score. 
+</p>
+
+This script is simply python3-based and does not carry any chemical information in its current state. <br>
+Required python packages: <br>
+numpy, matplotlib, scipy, mrcfile <br>
 
 # File descriptions
 ## *fft_opencl.py*
